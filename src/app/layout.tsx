@@ -29,11 +29,10 @@ export default function RootLayout({
   params: { locale: string };
 }>) {
 
-  const messages = ()=> {}
-  //useMessages()
+  const messages = useMessages()
 
   if (!messages) {
-    // notFound()
+    notFound()
   }
 
 
