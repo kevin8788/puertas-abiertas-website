@@ -1,10 +1,13 @@
+// src/app/page.tsx
 'use client'
 
 import React from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
-const HomePage = () => {
+export default function Home() {
+  const t = useTranslations('Home'); // opcional si quieres traducciones
+
   return (
     <div className="w-full bg-white text-gray-800">
       {/* Hero Section */}
@@ -20,7 +23,6 @@ const HomePage = () => {
 
       {/* Service Times + Map */}
       <section className="py-12 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-        {/* Info */}
         <div className="bg-slate-100 p-6 rounded-xl shadow-md space-y-4">
           <h2 className="text-2xl font-bold text-slate-800">Horarios de Servicio</h2>
           <p><strong>Jueves:</strong> 6:30 PM</p>
@@ -34,7 +36,6 @@ const HomePage = () => {
           </Link>
         </div>
 
-        {/* Google Maps */}
         <div className="rounded-xl overflow-hidden shadow-lg">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3298.5305104303065!2d-118.44720492388798!3d34.23500430805728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c290d9762fe88d%3A0xbef6c877f37d79e!2s14320%20Nordhoff%20St%2C%20Panorama%20City%2C%20CA%2091402!5e0!3m2!1sen!2sus!4v1759287272197!5m2!1sen!2sus"
@@ -58,5 +59,3 @@ const HomePage = () => {
     </div>
   )
 }
-
-export default HomePage

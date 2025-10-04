@@ -37,7 +37,7 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en">
+    <html lang="es">
       <body className='font-serif pt'>
         
         <Navbar/> 
