@@ -14,47 +14,6 @@ export default function AboutPage() {
         <p className="text-lg text-gray-600">{t('subtitle')}</p>
       </div>
 
-      {/* Imagen decorativa o histórica */}
-      <div className="w-full h-64 relative overflow-hidden rounded-lg shadow-lg">
-        <Image
-          src="/images/about-hero.jpg"
-          alt="Church Story"
-          fill
-          className="object-cover"
-        />
-      </div>
-
-      {/* Párrafos de la historia */}
-      <div className="space-y-6 text-gray-700">
-        <p>{t('para1')}</p>
-        <p>{t('para2')}</p>
-      </div>
-
-      {/* Misión / Visión / Valores */}
-      <div className="grid md:grid-cols-3 gap-6">
-        <div className="bg-slate-100 p-6 rounded-lg shadow">
-          <h3 className="font-semibold mb-2">{t('missionTitle')}</h3>
-          <p>{t('missionDesc')}</p>
-        </div>
-        <div className="bg-slate-100 p-6 rounded-lg shadow">
-          <h3 className="font-semibold mb-2">{t('visionTitle')}</h3>
-          <p>{t('visionDesc')}</p>
-        </div>
-        <div className="bg-slate-100 p-6 rounded-lg shadow">
-          <h3 className="font-semibold mb-2">{t('valuesTitle')}</h3>
-          <p>{t('valuesDesc')}</p>
-        </div>
-      </div>
-
-      {/* CTA: Invitación a conocer más, donar, etc. */}
-      <div className="text-center mt-10">
-        <Link
-          href="/donate"
-          className="px-6 py-3 bg-rose-600 text-white rounded-full hover:bg-rose-700"
-        >
-          {t('donateButton')}
-        </Link>
-      </div>
     </div>
   )
 }

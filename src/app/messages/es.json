@@ -1,6 +1,28 @@
 {
+  "Home": { "title": "Nuestra Historia",
+    "subtitle": "Cómo empezó todo"},
   "About": {
     "title": "Nuestra Historia",
     "subtitle": "Cómo empezó todo"
+  },
+   "Navbar": {
+    "churchName": "Iglesia Puertas Abiertas",
+    "home": "Inicio",
+    "about": "Nosotros",
+    "ministry": "Ministerio",
+    "events": "Eventos",
+    "contact": "Contacto",
+    "calendar": "Calendario",
+    "donate": "Donar"
+  },
+  "Footer": {
+    "churchName": "Iglesia Puertas Abiertas",
+    "address": "14320 Nordhoff St, Panorama City, CA 91402",
+    "schedule": "Jueves 6:30 PM · Domingos 9 AM, 10:30 AM, 12 PM",
+    "aboutUs": "Sobre Nosotros",
+    "contact": "Contáctanos",
+    "donate": "Donar",
+    "followUs": "Síguenos en nuestras redes",
+    "rights": "Todos los derechos reservados"
   }
 }
