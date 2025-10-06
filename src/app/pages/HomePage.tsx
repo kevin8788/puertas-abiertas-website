@@ -1,4 +1,3 @@
-// src/app/page.tsx
 'use client'
 
 import React from 'react'
@@ -6,17 +5,17 @@ import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 
 export default function Home() {
-  const t = useTranslations('Home'); // opcional si quieres traducciones
+  const t = useTranslations('Home')
 
   return (
     <div className="w-full bg-white text-gray-800">
       {/* Hero Section */}
       <section className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/hero.webp')" }}>
         <div className="absolute pt-50 inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-6">
-          <h1 className="text-4xl md:text-6xl font-bold">Bienvenidos a Iglesia Puertas Abiertas</h1>
-          <p className="text-xl md:text-2xl mb-6">Una comunidad con propósito eterno</p>
+          <h1 className="text-4xl md:text-6xl font-bold">{t('heroTitle')}</h1>
+          <p className="text-xl md:text-2xl mb-6">{t('heroSubtitle')}</p>
           <Link href="/about" className="px-6 py-3 bg-rose-600 hover:bg-rose-700 rounded-full text-white text-lg font-semibold">
-            Conócenos
+            {t('knowUs')}
           </Link>
         </div>
       </section>
@@ -24,15 +23,15 @@ export default function Home() {
       {/* Service Times + Map */}
       <section className="py-12 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         <div className="bg-slate-100 p-6 rounded-xl shadow-md space-y-4">
-          <h2 className="text-2xl font-bold text-slate-800">Horarios de Servicio</h2>
-          <p><strong>Jueves:</strong> 6:30 PM</p>
-          <p><strong>Domingo:</strong> 9:00 AM, 10:30 AM, 12:00 PM</p>
+          <h2 className="text-2xl font-bold text-slate-800">{t('scheduleTitle')}</h2>
+          <p><strong>{t('thursday')}:</strong> 6:30 PM</p>
+          <p><strong>{t('sunday')}:</strong> 9:00 AM, 10:30 AM, 12:00 PM</p>
 
-          <h2 className="text-2xl font-bold mt-6 text-slate-800">Ubicación</h2>
+          <h2 className="text-2xl font-bold mt-6 text-slate-800">{t('locationTitle')}</h2>
           <p>14320 Nordhoff St, Panorama City, CA 91402</p>
 
           <Link href="/contact" className="inline-block mt-4 px-5 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-full font-medium">
-            Planifica tu visita
+            {t('planVisit')}
           </Link>
         </div>
 
@@ -50,10 +49,10 @@ export default function Home() {
 
       {/* CTA Banner */}
       <section className="bg-rose-600 text-white py-12 text-center">
-        <h3 className="text-3xl font-semibold mb-2">¿Primera vez aquí?</h3>
-        <p className="mb-4">Nos encantaría conocerte y ayudarte a dar tu siguiente paso.</p>
+        <h3 className="text-3xl font-semibold mb-2">{t('firstTimeTitle')}</h3>
+        <p className="mb-4">{t('firstTimeDesc')}</p>
         <Link href="/contact" className="px-6 py-3 bg-white text-rose-600 rounded-full font-semibold hover:bg-gray-100">
-          Planifica tu visita
+          {t('planVisit')}
         </Link>
       </section>
     </div>

@@ -1,11 +1,5 @@
 {
-  "Home": { "title": "Nuestra Historia",
-    "subtitle": "Cómo empezó todo"},
-  "About": {
-    "title": "Nuestra Historia",
-    "subtitle": "Cómo empezó todo"
-  },
-   "Navbar": {
+  "Navbar": {
     "churchName": "Iglesia Puertas Abiertas",
     "home": "Inicio",
     "about": "Nosotros",
@@ -15,6 +9,12 @@
     "calendar": "Calendario",
     "donate": "Donar"
   },
+  "Events": {
+    "title": "Próximos Eventos",
+    "subtitle": "Únete a nosotros en nuestras actividades y celebraciones",
+    "loading": "Cargando eventos...",
+    "noEvents": "No hay eventos programados en este momento"
+  },
   "Footer": {
     "churchName": "Iglesia Puertas Abiertas",
     "address": "14320 Nordhoff St, Panorama City, CA 91402",
@@ -23,6 +23,183 @@
     "contact": "Contáctanos",
     "donate": "Donar",
     "followUs": "Síguenos en nuestras redes",
-    "rights": "Todos los derechos reservados"
+    "rights": "Todos los derechos reservados",
+    "poweredBy": "Desarrollado por",
+      "tagline": "Una comunidad con propósito eterno",
+    "contactTitle": "Contacto",
+    "linksTitle": "Enlaces",
+    "socialTitle": "Redes Sociales"
+  },
+  "Home": {
+    "heroTitle": "Bienvenidos a Iglesia Puertas Abiertas",
+    "heroSubtitle": "Una comunidad con propósito eterno",
+    "knowUs": "Conócenos",
+    "scheduleTitle": "Horarios de Servicio",
+    "thursday": "Jueves",
+    "sunday": "Domingo",
+    "locationTitle": "Ubicación",
+    "planVisit": "Planifica tu visita",
+    "firstTimeTitle": "¿Primera vez aquí?",
+    "firstTimeDesc": "Nos encantaría conocerte y ayudarte a dar tu siguiente paso."
+  },
+  "About": {
+    "title": "Sobre Nosotros",
+    "subtitle": "Conoce más sobre nuestra historia, visión y el corazón de nuestra iglesia",
+    "imageAlt": "Imagen de la iglesia",
+    "para1": "Iglesia Puertas Abiertas comenzó en 2010 con un grupo pequeño de creyentes apasionados por compartir el amor de Cristo. A lo largo de los años, hemos crecido hasta convertirnos en una comunidad vibrante dedicada a servir a Dios y a nuestra comunidad.",
+    "para2": "Nuestra misión es ser una iglesia que refleje el amor incondicional de Dios, donde cada persona pueda encontrar esperanza, propósito y una familia espiritual que los acompañe en su caminar con Cristo.",
+    "missionTitle": "Misión",
+    "missionDesc": "Compartir el evangelio de Jesucristo y hacer discípulos que transformen vidas y comunidades.",
+    "visionTitle": "Visión",
+    "visionDesc": "Ser una iglesia que impacte nuestra ciudad y el mundo con el amor y la verdad de Cristo.",
+    "valuesTitle": "Valores",
+    "valuesDesc": "Fe, amor, servicio, comunidad y excelencia en todo lo que hacemos para la gloria de Dios.",
+    "donateButton": "Apoya nuestro ministerio"
+  },
+  "Contact": {
+    "title": "Contáctanos",
+    "subtitle": "Nos encantaría saber de ti. Envíanos un mensaje o visítanos.",
+    "infoTitle": "Información de Contacto",
+    "addressLabel": "Dirección",
+    "phoneLabel": "Teléfono",
+    "emailLabel": "Email",
+    "scheduleLabel": "Horarios de Servicio",
+    "thursday": "Jueves",
+    "sunday": "Domingo",
+    "formTitle": "Envíanos un Mensaje",
+    "nameLabel": "Nombre",
+    "messageLabel": "Mensaje",
+    "submitButton": "Enviar Mensaje",
+    "successMessage": "¡Gracias por tu mensaje! Te contactaremos pronto."
+  },
+"Ministry": {
+    "title": "Nuestros Ministerios",
+    "subtitle": "Descubre cómo puedes involucrarte y crecer en tu fe",
+    "youthTitle": "Ministerio de Jóvenes",
+    "youthDesc": "Un espacio donde los jóvenes pueden crecer en su fe, formar amistades duraderas y descubrir su propósito en Cristo.",
+    "youthSchedule": "Viernes 7:00 PM",
+    "worshipTitle": "Ministerio de Alabanza",
+    "worshipDesc": "Únete a nuestro equipo de adoración y usa tus talentos para glorificar a Dios a través de la música y la adoración.",
+    "worshipSchedule": "Ensayos: Miércoles 7:00 PM",
+    "bibleTitle": "Escuela Bíblica",
+    "bibleDesc": "Profundiza en el estudio de la Palabra de Dios y crece en tu comprensión de las Escrituras.",
+    "bibleSchedule": "Domingos 9:00 AM",
+    "musicTitle": "Ministerio de Música",
+    "musicDesc": "Desarrolla tus habilidades musicales mientras sirves al Señor y edificas a la iglesia.",
+    "musicSchedule": "Sábados 4:00 PM",
+    
+    "leadershipTitle": "Liderazgo",
+    "leadershipSubtitle": "Nuestros pastores y líderes espirituales",
+    "yearsOfMinistry": "años de ministerio",
+    
+    "isaacRole": "Pastor",
+    "isaacDesc": "Líder espiritual de la congregación",
+    
+    "lilianaRole": "Pastora",
+    "lilianaDesc": "Ministerio de mujeres y familias",
+    
+    "serversTitle": "Servidores",
+    "serversSubtitle": "Personas dedicadas al servicio de Dios y la comunidad",
+    
+    "ronaldRole": "Coordinador de Ujieres",
+    "ronaldDesc": "Recepción y hospitalidad",
+    
+    "jannetRole": "Ministerio de Niños",
+    "jannetDesc": "Educación y cuidado infantil",
+    
+    "cindyRole": "Adoración",
+    "cindyDesc": "Música y alabanza",
+    
+    "domenicaRole": "Intercesión",
+    "domenicaDesc": "Ministerio de oración",
+    
+    "enriqueRole": "Mantenimiento",
+    "enriqueDesc": "Cuidado de las instalaciones",
+    
+    "dianaRole": "Hospitalidad",
+    "dianaDesc": "Atención a visitantes",
+    
+    "leticiaRole": "Seguridad",
+    "leticiaDesc": "Protección y orden",
+    
+    "mediaTeamTitle": "Grupo de Media",
+    "mediaTeamSubtitle": "Equipo de producción audiovisual y transmisiones",
+    
+    "enriquePerezRole": "Director de Media",
+    "enriquePerezDesc": "Coordinación audiovisual",
+    
+    "myharaRole": "Streaming y Video",
+    "myharaDesc": "Transmisiones en vivo",
+    
+    "kevinRole": "Operador de Sonido",
+    "kevinDesc": "Audio y mezcla",
+    
+    "serviceAreasTitle": "Áreas de Servicio",
+    "serviceAreasSubtitle": "Diferentes ministerios donde puedes servir",
+    
+    "serviceAreaWorshipTitle": "Adoración",
+    "serviceAreaWorshipDesc": "Ministerio de música y alabanza",
+    
+    "serviceAreaTechTitle": "Técnico",
+    "serviceAreaTechDesc": "Sonido, luces y audiovisual",
+    
+    "serviceAreaHospitalityTitle": "Hospitalidad",
+    "serviceAreaHospitalityDesc": "Recepción y atención a visitantes",
+    
+    "serviceAreaChildrenTitle": "Niños",
+    "serviceAreaChildrenDesc": "Ministerio infantil y escuela dominical"
+  },
+  "Calendar": {
+    "title": "Calendario de Eventos",
+    "subtitle": "Mantente al día con nuestros próximos eventos y actividades",
+    "event1Day": "15",
+    "event1Month": "ENE",
+    "event1Title": "Noche de Adoración",
+    "event1Desc": "Únete a nosotros para una noche especial de adoración y oración.",
+    "event1Time": "7:00 PM - 9:00 PM",
+    "event1Location": "Santuario Principal",
+    "event2Day": "22",
+    "event2Month": "ENE",
+    "event2Title": "Retiro de Jóvenes",
+    "event2Desc": "Un fin de semana de crecimiento espiritual y diversión para los jóvenes.",
+    "event2Time": "Viernes 6:00 PM - Domingo 12:00 PM",
+    "event2Location": "Camp Pines",
+    "event3Day": "29",
+    "event3Month": "ENE",
+    "event3Title": "Día de Servicio Comunitario",
+    "event3Desc": "Únete a nosotros para servir a nuestra comunidad local.",
+    "event3Time": "9:00 AM - 2:00 PM",
+    "event3Location": "Varios lugares"
+  },
+   "Donate": {
+    "title": "Apoya Nuestro Ministerio",
+    "subtitle": "Tu generosidad hace posible que continuemos impactando vidas y compartiendo el amor de Cristo en nuestra comunidad.",
+    "makeADonation": "Hacer una Donación",
+    "oneTime": "Una Vez",
+    "monthly": "Mensual",
+    "selectAmount": "Selecciona un Monto",
+    "customAmount": "Monto Personalizado",
+    "enterAmount": "Ingresa el Monto",
+    "donateButton": "Donar Ahora",
+    "secureTransaction": "Transacción segura y encriptada",
+    "amountError": "Por favor ingresa un monto válido",
+    "thankYou": "¡Gracias por tu donación de",
+    "impactTitle": "Tu Impacto",
+    "impactDesc": "Cada donación marca una diferencia. Aquí está cómo tu generosidad impacta:",
+    "impact1": "Apoyo a programas ministeriales y alcance comunitario",
+    "impact2": "Mantenimiento y mejora de las instalaciones de la iglesia",
+    "impact3": "Actividades para jóvenes y familias",
+    "impact4": "Apoyo a misiones locales e internacionales",
+    "otherWaysTitle": "Otras Formas de Donar",
+    "bankTransferTitle": "Transferencia Bancaria",
+    "bankTransferDesc": "Realiza una transferencia directa a nuestra cuenta:",
+    "bankName": "Banco",
+    "accountNumber": "Número de Cuenta",
+    "routingNumber": "Número de Ruta",
+    "checkTitle": "Cheque",
+    "checkDesc": "Envía tu cheque a nuestra dirección:",
+    "taxDeductible": "Iglesia Puertas Abiertas es una organización 501(c)(3). Todas las donaciones son deducibles de impuestos según lo permitido por la ley.",
+    "bibleVerse": "Cada uno debe dar según lo que haya decidido en su corazón, no de mala gana ni por obligación, porque Dios ama al que da con alegría.",
+    "bibleReference": "2 Corintios 9:7"
   }
 }

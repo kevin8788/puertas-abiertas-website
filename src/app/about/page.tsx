@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Iglesia Puertas Abiertas Home'
 }
 
-export default function Home() {
+export default function About() {
   return (
     <div className="font-sans ">
       <AboutPage/>

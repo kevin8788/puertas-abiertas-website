@@ -1,12 +1,4 @@
 {
-  "Home": {
-    "title": "Our Story",
-    "subtitle": "How it all began"
-  },
-  "About": {
-    "title": "Our Story",
-    "subtitle": "How it all began"
-  }, 
   "Navbar": {
     "churchName": "Iglesia Puertas Abiertas",
     "home": "Home",
@@ -17,6 +9,12 @@
     "calendar": "Calendar",
     "donate": "Donate"
   },
+   "Events": {
+    "title": "Upcoming Events",
+    "subtitle": "Join us in our activities and celebrations",
+    "loading": "Loading events...",
+    "noEvents": "No events scheduled at this time"
+  },
   "Footer": {
     "churchName": "Iglesia Puertas Abiertas",
     "address": "14320 Nordhoff St, Panorama City, CA 91402",
@@ -25,6 +23,183 @@
     "contact": "Contact Us",
     "donate": "Donate",
     "followUs": "Follow us on social media",
-    "rights": "All rights reserved"
+    "rights": "All rights reserved",
+    "poweredBy": "Powered by",
+    "tagline": "A community with eternal purpose",
+    "contactTitle": "Contact",
+    "linksTitle": "Links",
+    "socialTitle": "Social Media"
+  },
+  "Home": {
+    "heroTitle": "Welcome to Iglesia Puertas Abiertas",
+    "heroSubtitle": "A community with eternal purpose",
+    "knowUs": "Get to Know Us",
+    "scheduleTitle": "Service Times",
+    "thursday": "Thursday",
+    "sunday": "Sunday",
+    "locationTitle": "Location",
+    "planVisit": "Plan Your Visit",
+    "firstTimeTitle": "First Time Here?",
+    "firstTimeDesc": "We'd love to meet you and help you take your next step."
+  },
+  "About": {
+    "title": "About Us",
+    "subtitle": "Learn more about our history, vision, and the heart of our church",
+    "imageAlt": "Church image",
+    "para1": "Iglesia Puertas Abiertas began in 2010 with a small group of believers passionate about sharing Christ's love. Over the years, we've grown into a vibrant community dedicated to serving God and our community.",
+    "para2": "Our mission is to be a church that reflects God's unconditional love, where every person can find hope, purpose, and a spiritual family to accompany them on their walk with Christ.",
+    "missionTitle": "Mission",
+    "missionDesc": "To share the gospel of Jesus Christ and make disciples who transform lives and communities.",
+    "visionTitle": "Vision",
+    "visionDesc": "To be a church that impacts our city and the world with the love and truth of Christ.",
+    "valuesTitle": "Values",
+    "valuesDesc": "Faith, love, service, community, and excellence in everything we do for God's glory.",
+    "donateButton": "Support Our Ministry"
+  },
+  "Contact": {
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you. Send us a message or visit us.",
+    "infoTitle": "Contact Information",
+    "addressLabel": "Address",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "scheduleLabel": "Service Times",
+    "thursday": "Thursday",
+    "sunday": "Sunday",
+    "formTitle": "Send Us a Message",
+    "nameLabel": "Name",
+    "messageLabel": "Message",
+    "submitButton": "Send Message",
+    "successMessage": "Thank you for your message! We'll contact you soon."
+  },
+  "Ministry": {
+    "title": "Our Ministries",
+    "subtitle": "Discover how you can get involved and grow in your faith",
+    "youthTitle": "Youth Ministry",
+    "youthDesc": "A space where young people can grow in their faith, form lasting friendships, and discover their purpose in Christ.",
+    "youthSchedule": "Fridays 7:00 PM",
+    "worshipTitle": "Worship Ministry",
+    "worshipDesc": "Join our worship team and use your talents to glorify God through music and worship.",
+    "worshipSchedule": "Rehearsals: Wednesdays 7:00 PM",
+    "bibleTitle": "Bible School",
+    "bibleDesc": "Deepen your study of God's Word and grow in your understanding of Scripture.",
+    "bibleSchedule": "Sundays 9:00 AM",
+    "musicTitle": "Music Ministry",
+    "musicDesc": "Develop your musical skills while serving the Lord and building up the church.",
+    "musicSchedule": "Saturdays 4:00 PM",
+    
+    "leadershipTitle": "Leadership",
+    "leadershipSubtitle": "Our pastors and spiritual leaders",
+    "yearsOfMinistry": "years of ministry",
+    
+    "isaacRole": "Pastor",
+    "isaacDesc": "Spiritual leader of the congregation",
+    
+    "lilianaRole": "Pastor",
+    "lilianaDesc": "Women's and family ministry",
+    
+    "serversTitle": "Servers",
+    "serversSubtitle": "People dedicated to serving God and the community",
+    
+    "ronaldRole": "Usher Coordinator",
+    "ronaldDesc": "Reception and hospitality",
+    
+    "jannetRole": "Children's Ministry",
+    "jannetDesc": "Children's education and care",
+    
+    "cindyRole": "Worship",
+    "cindyDesc": "Music and praise",
+    
+    "domenicaRole": "Intercession",
+    "domenicaDesc": "Prayer ministry",
+    
+    "enriqueRole": "Maintenance",
+    "enriqueDesc": "Facility care",
+    
+    "dianaRole": "Hospitality",
+    "dianaDesc": "Visitor care",
+    
+    "leticiaRole": "Security",
+    "leticiaDesc": "Protection and order",
+    
+    "mediaTeamTitle": "Media Team",
+    "mediaTeamSubtitle": "Audiovisual production and streaming team",
+    
+    "enriquePerezRole": "Media Director",
+    "enriquePerezDesc": "Audiovisual coordination",
+    
+    "myharaRole": "Streaming & Video",
+    "myharaDesc": "Live broadcasts",
+    
+    "kevinRole": "Sound Operator",
+    "kevinDesc": "Audio and mixing",
+    
+    "serviceAreasTitle": "Service Areas",
+    "serviceAreasSubtitle": "Different ministries where you can serve",
+    
+    "serviceAreaWorshipTitle": "Worship",
+    "serviceAreaWorshipDesc": "Music and praise ministry",
+    
+    "serviceAreaTechTitle": "Technical",
+    "serviceAreaTechDesc": "Sound, lights, and audiovisual",
+    
+    "serviceAreaHospitalityTitle": "Hospitality",
+    "serviceAreaHospitalityDesc": "Reception and visitor care",
+    
+    "serviceAreaChildrenTitle": "Children",
+    "serviceAreaChildrenDesc": "Children's ministry and Sunday school"
+  },
+  "Calendar": {
+    "title": "Events Calendar",
+    "subtitle": "Stay up to date with our upcoming events and activities",
+    "event1Day": "15",
+    "event1Month": "JAN",
+    "event1Title": "Worship Night",
+    "event1Desc": "Join us for a special night of worship and prayer.",
+    "event1Time": "7:00 PM - 9:00 PM",
+    "event1Location": "Main Sanctuary",
+    "event2Day": "22",
+    "event2Month": "JAN",
+    "event2Title": "Youth Retreat",
+    "event2Desc": "A weekend of spiritual growth and fun for young people.",
+    "event2Time": "Friday 6:00 PM - Sunday 12:00 PM",
+    "event2Location": "Camp Pines",
+    "event3Day": "29",
+    "event3Month": "JAN",
+    "event3Title": "Community Service Day",
+    "event3Desc": "Join us in serving our local community.",
+    "event3Time": "9:00 AM - 2:00 PM",
+    "event3Location": "Various locations"
+  },
+  "Donate": {
+    "title": "Support Our Ministry",
+    "subtitle": "Your generosity makes it possible for us to continue impacting lives and sharing Christ's love in our community.",
+    "makeADonation": "Make a Donation",
+    "oneTime": "One Time",
+    "monthly": "Monthly",
+    "selectAmount": "Select Amount",
+    "customAmount": "Custom Amount",
+    "enterAmount": "Enter Amount",
+    "donateButton": "Donate Now",
+    "secureTransaction": "Secure and encrypted transaction",
+    "amountError": "Please enter a valid amount",
+    "thankYou": "Thank you for your donation of",
+    "impactTitle": "Your Impact",
+    "impactDesc": "Every donation makes a difference. Here's how your generosity impacts:",
+    "impact1": "Support ministry programs and community outreach",
+    "impact2": "Maintain and improve church facilities",
+    "impact3": "Youth and family activities",
+    "impact4": "Support local and international missions",
+    "otherWaysTitle": "Other Ways to Give",
+    "bankTransferTitle": "Bank Transfer",
+    "bankTransferDesc": "Make a direct transfer to our account:",
+    "bankName": "Bank",
+    "accountNumber": "Account Number",
+    "routingNumber": "Routing Number",
+    "checkTitle": "Check",
+    "checkDesc": "Mail your check to our address:",
+    "taxDeductible": "Iglesia Puertas Abiertas is a 501(c)(3) organization. All donations are tax-deductible as permitted by law.",
+    "bibleVerse": "Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver.",
+    "bibleReference": "2 Corinthians 9:7"
   }
 }
