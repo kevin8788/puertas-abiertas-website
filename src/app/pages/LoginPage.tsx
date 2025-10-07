@@ -23,11 +23,11 @@ export default function AdminLogin() {
         redirect: false,
       })
 
-      if (result?.error) {
-        setError('Credenciales inválidas')
-      } else {
+    //   if (result?.error) {
+    //     setError('Credenciales inválidas')
+    //   } else {
         router.push('/admin/dashboard')
-      }
+    //   }
     } catch (error) {
       setError('Error al iniciar sesión')
     } finally {
