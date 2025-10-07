@@ -41,11 +41,13 @@ export async function POST(request: Request) {
       createdAt: new Date().toISOString(),
     }
 
+    console.log({title, description, date, time, location, image})
+
     events.push(newEvent)
 
     return NextResponse.json(newEvent, { status: 201 })
-  } catch (error) {
-    return NextResponse.json({ error: 'Error creating event' }, { status: 500 })
+  } catch (error : any) {
+    return NextResponse.json({ error: 'Error creating event, ' + error.message }, { status: 500 })
   }
 }
 

@@ -42,19 +42,80 @@
     "firstTimeTitle": "First Time Here?",
     "firstTimeDesc": "We'd love to meet you and help you take your next step."
   },
-  "About": {
+"About": {
     "title": "About Us",
-    "subtitle": "Learn more about our history, vision, and the heart of our church",
-    "imageAlt": "Church image",
-    "para1": "Iglesia Puertas Abiertas began in 2010 with a small group of believers passionate about sharing Christ's love. Over the years, we've grown into a vibrant community dedicated to serving God and our community.",
-    "para2": "Our mission is to be a church that reflects God's unconditional love, where every person can find hope, purpose, and a spiritual family to accompany them on their walk with Christ.",
-    "missionTitle": "Mission",
-    "missionDesc": "To share the gospel of Jesus Christ and make disciples who transform lives and communities.",
-    "visionTitle": "Vision",
-    "visionDesc": "To be a church that impacts our city and the world with the love and truth of Christ.",
-    "valuesTitle": "Values",
-    "valuesDesc": "Faith, love, service, community, and excellence in everything we do for God's glory.",
-    "donateButton": "Support Our Ministry"
+    "motto": "We are Open Doors to a new life",
+    
+    "visionTitle": "Our Vision",
+    "visionDesc": "To be a church that guides people to encounter Jesus and grow in their walk with Him, while equipping and empowering members for a life of faith and purpose, with a focus on making and sending disciples for Jesus.",
+    
+    "cultureTitle": "Church Culture",
+    "cultureDesc": "A congregation characterized by being friendly, showing love to people, and focusing on family health and teaching the Word.",
+    
+    "missionTitle": "Our Mission",
+    "missionDesc": "To reach people with the gospel, restore their lives with God's love, disciple them to commit to being devoted disciples of Christ, and be filled with the Holy Spirit.",
+    
+    "methodTitle": "Our Method",
+    "methodConnectTitle": "Connect",
+    "methodConnectDesc": "Incorporate the newcomer into God's family, connect the person to church life.",
+    "methodFormTitle": "Form",
+    "methodFormDesc": "Instruct the new believer to be a good disciple of Christ.",
+    "methodEquipTitle": "Equip",
+    "methodEquipDesc": "Equip God's people, helping them serve according to their gifts.",
+    "methodSendTitle": "Send",
+    "methodSendDesc": "Expand God's word, send them to evangelize.",
+    
+    "bibleFoundationTitle": "Our Collective Objectives",
+    "bibleVerse": "Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.",
+    "bibleReference": "Matthew 28:19-20",
+    
+    "valuesTitle": "Open Doors Values",
+    "valuesSubtitle": "Ten values that make our church unique",
+    
+    "valueEvangelismTitle": "1. EVANGELISM",
+    "valueEvangelismDesc": "Evangelism is most effective when people invite other people. Believers develop new friendships and then extend an invitation. Evangelism becomes normal, a lifestyle of introducing others to Jesus.",
+    "valueEvangelismScripture": "Prov.11:30; John 1:43-45; John 4:28-30; Matt.18:14; 2Pet.3:9",
+    
+    "valueTeamMinistryTitle": "2. TEAM MINISTRY",
+    "valueTeamMinistryDesc": "The voluntary participation of each person serving in the power of the Spirit is vital for God's plan to be fulfilled.",
+    "valueTeamMinistryScripture": "Eph.4:11-16; Eccl.4:9-12; Ps.133:1",
+    
+    "valueRelevanceTitle": "3. RELEVANCE",
+    "valueRelevanceDesc": "Presenting the gospel in a creative, clear, and relevant way impacts and transforms lives. Being relevant to our culture while remaining faithful to scripture allows us to reach people's hearts.",
+    "valueRelevanceScripture": "1Cor.9:22; Acts 17:22-34",
+    
+    "valueGrowthTitle": "4. GROWTH/HEALTH",
+    "valueGrowthDesc": "Everything healthy grows, therefore each member must develop a consistent lifestyle of spiritual growth. Discipleship, honest accountability, and removing growth impediments are essential for spiritual maturity.",
+    "valueGrowthScripture": "1Pet.2:2; 1Tim.4:7-8",
+    
+    "valueServiceTitle": "5. SERVICE",
+    "valueServiceDesc": "Each believer will find their greatest joy and satisfaction by serving according to their passion and gifts. Every believer was created for ministry, gifted for ministry, authorized for ministry, and is necessary for ministry.",
+    "valueServiceScripture": "Mark 10:45; Eph.2:10; Rom.12; 1Cor.12:14-20",
+    
+    "valueExcellenceTitle": "6. EXCELLENCE/ORGANIZATION",
+    "valueExcellenceDesc": "A spirit of excellence and organization must saturate every activity. Our goal is not perfection but excellence with consistent evaluation and desire to improve for God's kingdom.",
+    "valueExcellenceScripture": "Ps.78:72; Col.3:17; Eccl.10:10",
+    
+    "valueRelationshipsTitle": "7. RELATIONSHIPS",
+    "valueRelationshipsDesc": "Genuine love and good friendships are key components for success, happiness, and character development. We desire to provide an environment where healthy relationships can be formed, nurtured, and developed.",
+    "valueRelationshipsScripture": "1Pet.3:8-9; Rom.16:17; Eph.4:3",
+    
+    "valueLeadershipTitle": "8. LEADERSHIP",
+    "valueLeadershipDesc": "Leadership is influence, everything rises or falls based on leadership. Identifying and training future leaders is of primary importance.",
+    "valueLeadershipScripture": "2Tim.2:2; 1Tim.3:1; Titus 2:6-8; Eph.4:15",
+    
+    "valueIntegrityTitle": "9. INTEGRITY",
+    "valueIntegrityDesc": "Integrity is a matter of the heart, and a heart committed to truth will produce growth and health in all areas of life.",
+    "valueIntegrityScripture": "Matt.12:35; Rom.13:8-10; Prov.11:3; Titus 2:6-8; Eph.4:15; Matt.6:21",
+    
+    "valueChristCenteredTitle": "10. CHRIST-CENTERED",
+    "valueChristCenteredDesc": "Jesus Christ is all in all. Jesus Christ is the Savior, Healer, Baptizer with the Holy Spirit, and the coming King.",
+    "valueChristCenteredScripture": "Heb.12:2; 13:8; 1Cor.8:6; Rom.5:17; Col.3:11",
+    
+    "ctaTitle": "Want to be part?",
+    "ctaDesc": "We invite you to get to know us and discover how you can be part of our family.",
+    "ctaContact": "Contact Us",
+    "ctaMinistry": "View Ministries"
   },
   "Contact": {
     "title": "Contact Us",

@@ -42,19 +42,80 @@
     "firstTimeTitle": "¿Primera vez aquí?",
     "firstTimeDesc": "Nos encantaría conocerte y ayudarte a dar tu siguiente paso."
   },
-  "About": {
+   "About": {
     "title": "Sobre Nosotros",
-    "subtitle": "Conoce más sobre nuestra historia, visión y el corazón de nuestra iglesia",
-    "imageAlt": "Imagen de la iglesia",
-    "para1": "Iglesia Puertas Abiertas comenzó en 2010 con un grupo pequeño de creyentes apasionados por compartir el amor de Cristo. A lo largo de los años, hemos crecido hasta convertirnos en una comunidad vibrante dedicada a servir a Dios y a nuestra comunidad.",
-    "para2": "Nuestra misión es ser una iglesia que refleje el amor incondicional de Dios, donde cada persona pueda encontrar esperanza, propósito y una familia espiritual que los acompañe en su caminar con Cristo.",
-    "missionTitle": "Misión",
-    "missionDesc": "Compartir el evangelio de Jesucristo y hacer discípulos que transformen vidas y comunidades.",
-    "visionTitle": "Visión",
-    "visionDesc": "Ser una iglesia que impacte nuestra ciudad y el mundo con el amor y la verdad de Cristo.",
-    "valuesTitle": "Valores",
-    "valuesDesc": "Fe, amor, servicio, comunidad y excelencia en todo lo que hacemos para la gloria de Dios.",
-    "donateButton": "Apoya nuestro ministerio"
+    "motto": "Somos Puertas Abiertas a una nueva vida",
+    
+    "visionTitle": "Nuestra Visión",
+    "visionDesc": "Ser una iglesia que guía a las personas a encontrarse con Jesús y crecer en su caminar con Él, al mismo tiempo que equipa y empodera a los miembros para una vida de fe y propósito, con un enfoque en hacer y enviar discípulos para Jesús.",
+    
+    "cultureTitle": "La Cultura de la Iglesia",
+    "cultureDesc": "Es una congregación que se caracteriza por ser amigable, que da amor a las personas, y se enfoca en la salud de la familia, en la enseñanza de la palabra.",
+    
+    "missionTitle": "Nuestra Misión",
+    "missionDesc": "Alcanzar a las personas con el evangelio, restaurar sus vidas con el amor de Dios, discipulándolos para que se comprometan a ser discípulos entregados a Cristo y sean llenos del Espíritu Santo.",
+    
+    "methodTitle": "Nuestro Método",
+    "methodConnectTitle": "Conectar",
+    "methodConnectDesc": "Incorporar al nuevo a la familia de Dios, conectar a la persona a la vida de la iglesia.",
+    "methodFormTitle": "Formar",
+    "methodFormDesc": "Instruir al nuevo creyente para que sea un buen discípulo de Cristo.",
+    "methodEquipTitle": "Capacitar",
+    "methodEquipDesc": "Capacitar al pueblo de Dios, ayudándoles a servir según sus dones.",
+    "methodSendTitle": "Enviar",
+    "methodSendDesc": "Expandir la palabra de Dios, enviarlos a evangelizar.",
+    
+    "bibleFoundationTitle": "Nuestros Objetivos Colectivos",
+    "bibleVerse": "Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo; enseñándoles que guarden todas las cosas que os he mandado; y he aquí yo estoy con vosotros todos los días, hasta el fin del mundo. Amén.",
+    "bibleReference": "Mateo 28:19-20 (RVR1960)",
+    
+    "valuesTitle": "Los Valores de Puertas Abiertas",
+    "valuesSubtitle": "Diez valores que hacen única nuestra Iglesia",
+    
+    "valueEvangelismTitle": "1. EVANGELISMO",
+    "valueEvangelismDesc": "El evangelismo es más efectivo cuando personas invitan a otras personas. Creyentes desarrollan nuevas amistades y luego les extienden una invitación. El evangelismo se convierte en algo normal, un estilo de vida de introducir a otros a Jesús.",
+    "valueEvangelismScripture": "Pr.11:30; Jn.1:43-45; Jn.4:28-30; Mt.18:14; 2Ped.3:9",
+    
+    "valueTeamMinistryTitle": "2. MINISTERIO EN EQUIPO",
+    "valueTeamMinistryDesc": "La participación voluntaria de cada persona sirviendo en el poder del Espíritu es vital para que se cumpla el plan de Dios.",
+    "valueTeamMinistryScripture": "Ef.4:11-16; Ec.4:9-12; Sal.133:1",
+    
+    "valueRelevanceTitle": "3. RELEVANCIA",
+    "valueRelevanceDesc": "La presentación del evangelio en forma creativa, clara y relevante impacta y transforma vidas. Siendo relevantes a nuestra cultura y al mismo tiempo permaneciendo fieles a las escrituras nos permitirá alcanzar el corazón de las personas.",
+    "valueRelevanceScripture": "1Cor.9:22; Hch.17:22-34",
+    
+    "valueGrowthTitle": "4. CRECIMIENTO/SALUD",
+    "valueGrowthDesc": "Todo lo saludable crece, por lo tanto cada miembro debe desarrollar un estilo de vida consistente de crecimiento espiritual. El discipulado, la honesta responsabilización y el remover los impedimentos al crecimiento son esenciales para la madurez espiritual.",
+    "valueGrowthScripture": "1Ped.2:2; 1Ti.4:7-8",
+    
+    "valueServiceTitle": "5. SERVIR",
+    "valueServiceDesc": "Cada creyente encontrará su mayor gozo y satisfacción al servir de acuerdo a su pasión y sus dones. Todo creyente fue creado para el ministerio, dotado para el ministerio, autorizado para el ministerio y es necesario para el ministerio.",
+    "valueServiceScripture": "Mr.10:45; Ef.2:10; Ro.12; 1Cor.12:14-20",
+    
+    "valueExcellenceTitle": "6. EXCELENCIA/ORGANIZACIÓN",
+    "valueExcellenceDesc": "Un espíritu de excelencia y organización debe saturar cada actividad. Nuestra meta no es la perfección sino la excelencia con evaluación consistente y el deseo de mejorar por el bienestar del reino de Dios.",
+    "valueExcellenceScripture": "Sal.78:72; Col.3:17; Ec.10:10",
+    
+    "valueRelationshipsTitle": "7. RELACIONES",
+    "valueRelationshipsDesc": "El amor genuino y buenas amistades son componentes claves para el éxito, felicidad y el desarrollo del carácter. Es nuestro deseo proveer un ambiente donde relaciones saludables puedan ser formadas, nutridas y desarrolladas.",
+    "valueRelationshipsScripture": "1Ped.3:8-9; Rom.16:17; Ef.4:3",
+    
+    "valueLeadershipTitle": "8. LIDERAZGO",
+    "valueLeadershipDesc": "Liderazgo es influencia, todo sube o baja de acuerdo al liderazgo. El identificar y capacitar futuros líderes es de primordial importancia.",
+    "valueLeadershipScripture": "2Ti.2:2; 1Ti.3:1; Tit.2:6-8; Ef.4:15",
+    
+    "valueIntegrityTitle": "9. INTEGRIDAD",
+    "valueIntegrityDesc": "La integridad es un asunto del corazón y un corazón entregado a la verdad producirá crecimiento y salud en todas las áreas de la vida.",
+    "valueIntegrityScripture": "Mt.12:35; Ro.13:8-10; Pr.11:3; Tit.2:6-8; Ef.4:15; Mt.6:21",
+    
+    "valueChristCenteredTitle": "10. CRISTO-CÉNTRICOS",
+    "valueChristCenteredDesc": "Jesucristo es todo en todo. Jesucristo es el Salvador, Sanador, Bautizador con el Espíritu Santo y el Rey que viene.",
+    "valueChristCenteredScripture": "Hb.12:2; 13:8; 1Co.8:6; Ro.5:17; Col.3:11",
+    
+    "ctaTitle": "¿Quieres ser parte?",
+    "ctaDesc": "Te invitamos a conocernos y descubrir cómo puedes ser parte de nuestra familia.",
+    "ctaContact": "Contáctanos",
+    "ctaMinistry": "Ver Ministerios"
   },
   "Contact": {
     "title": "Contáctanos",
