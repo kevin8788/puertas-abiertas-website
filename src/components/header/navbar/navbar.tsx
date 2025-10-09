@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { Menu, X, Heart, Calendar, Users, Home, Phone, Info } from 'lucide-react'
+import { Menu, X, Heart, Calendar, Users, Home, Phone, Info, Newspaper } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import LanguageSelector from './translation'
 
@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: t('ministry'), link: '/ministry', icon: <Users size={18} /> },
     // { name: t('events'), link: '/events', icon: <Calendar size={18} /> },
     { name: t('contact'), link: '/contact', icon: <Phone size={18} /> },
+    { name: t('events'), link: '/events', icon: <Newspaper size={18} /> },
     { name: t('calendar'), link: '/calendar', icon: <Calendar size={18} /> },
   ]
 

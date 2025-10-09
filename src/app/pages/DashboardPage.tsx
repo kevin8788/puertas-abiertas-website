@@ -4,6 +4,8 @@ import { useSession, signOut } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Calendar, Trash2, Plus } from 'lucide-react'
+import moment from 'moment-timezone';
+import VARIABLES from '@/config/varaibles'
 
 interface Event {
   id: string
@@ -15,17 +17,29 @@ interface Event {
   image?: string
 }
 
+
+
 export default function AdminDashboard() {
 //   const { data: session, status } = useSession()
   const router = useRouter()
-  const [events, setEvents] = useState<Event[]>([])
-  const [showForm, setShowForm] = useState(false)
+  const [events, setEvents] = useState<Event[]>([]);
+  const [posts, setPosts] = useState<Event[]>([]);
+  const [showForm, setShowForm] = useState(false);
+  const [showPostForm, setShowPostForm] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
     date: '',
     time: '',
     location: '',
+    image: ''
+  });
+
+  const [formPostData, setFormPostData] = useState({
+    title: '',
+    description: '',
     image: ''
   })
 
@@ -41,13 +55,32 @@ export default function AdminDashboard() {
 //     }
 //   }, [session])
 
-  const fetchEvents = async () => {
+  useEffect(() => { 
+    fetchEvents();
+  }, [])
+
+  useEffect(() => { 
+  }, [events])
+
+  const fetchEvents = async () => { 
     try {
-      const response = await fetch('/api/events')
-      const data = await response.json()
-      setEvents(data)
-    } catch (error) {
-      console.error('Error fetching events:', error)
+      const baseUrl = window.location.origin; 
+      
+      const url = `${baseUrl}/api/test` 
+       
+      const response = await fetch(url); 
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      
+      const data = await response.json();  
+
+      setEvents(data) 
+    } catch (error) { 
+      setError(error instanceof Error ? error.message : 'Error desconocido')
+    } finally { 
+      setLoading(false)
     }
   }
 
@@ -76,13 +109,13 @@ export default function AdminDashboard() {
     if (!confirm('¿Estás seguro de eliminar este evento?')) return
 
     try {
-      const response = await fetch(`/api/events?id=${id}`, {
+      const response = await fetch(`/api/test?id=${id}`, {
         method: 'DELETE'
       })
 
       if (response.ok) {
         alert('Evento eliminado')
-        fetchEvents()
+        fetchEvents();
       }
     } catch (error) {
       alert('Error al eliminar evento')
@@ -206,7 +239,7 @@ export default function AdminDashboard() {
           )}
 
           {/* Events List */}
-          <div className="space-y-4">
+          <div className="space-y-4" style={{ maxHeight: '500px', overflow: 'auto' }}>
             {events.length === 0 ? (
               <p className="text-gray-500 text-center py-8">No hay eventos creados</p>
             ) : (
@@ -231,6 +264,96 @@ export default function AdminDashboard() {
               ))
             )}
           </div>
+        </div>
+
+        {/* Posts Management */}
+        <div className='mt-6 bg-white rounded-lg shadow-md p-6'>
+          <div className='flex justify-between items-center mb-6'>
+             <h2 className='text-2xl font-bold flex items-center gap-2'>
+              Gestion de Posts
+             </h2>
+              <button
+              onClick={() => setShowPostForm(!showPostForm)}
+              className="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-lg flex items-center gap-2"
+            >
+              <Plus size={20} />
+              {showPostForm ? 'Cancelar' : 'Nuevo Evento'}
+            </button>
+          </div>
+
+          {/* Form */}
+          {showPostForm && (
+            <form onSubmit={handleSubmit} className="mb-8 p-6 bg-gray-50 rounded-lg space-y-4">
+              <div className="grid md:grid-cols-1 gap-4">
+                <div>
+                  <label className="block mb-2 font-medium">Título *</label>
+                  <input
+                    type="text"
+                    required
+                    value={formPostData.title}
+                    onChange={(e) => setFormPostData({ ...formPostData, title: e.target.value })}
+                    className="w-full px-4 py-2 border rounded-lg"
+                  />
+                </div>
+                
+             
+               
+              </div>
+              <div>
+                <label className="block mb-2 font-medium">Descripción *</label>
+                <textarea
+                  required
+                  rows={4}
+                  value={formPostData.description}
+                  onChange={(e) => setFormPostData({ ...formPostData, description: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                />
+              </div>
+              <div>
+                <label className="block mb-2 font-medium">URL de Imagen (opcional)</label>
+                <input
+                  type="url"
+                  value={formPostData.image}
+                  onChange={(e) => setFormPostData({ ...formPostData, image: e.target.value })}
+                  className="w-full px-4 py-2 border rounded-lg"
+                  placeholder="https://ejemplo.com/imagen.jpg"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 rounded-lg font-semibold"
+              >
+                Crear Post
+              </button>
+            </form>
+          )}
+
+            <div className="space-y-4" style={{ maxHeight: '500px', overflow: 'auto' }}>
+            {events.length === 0 ? (
+              <p className="text-gray-500 text-center py-8">No hay posts creados</p>
+            ) : (
+              events.map((event) => (
+                <div key={event.id} className="border rounded-lg p-4 flex justify-between items-center hover:bg-gray-50">
+                  <div className="flex-1">
+                    <h3 className="font-bold text-lg">{event.title}</h3>
+                    <p className="text-gray-600 text-sm">{event.description}</p>
+                    <div className="text-sm text-gray-500 mt-2">
+                      <span>{new Date(event.date).toLocaleDateString()}</span> • 
+                      <span> {event.time}</span> • 
+                      <span> {event.location}</span>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => handleDelete(event.id)}
+                    className="ml-4 p-2 text-red-600 hover:bg-red-50 rounded-lg"
+                  >
+                    <Trash2 size={20} />
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
+
         </div>
       </div>
     </div>

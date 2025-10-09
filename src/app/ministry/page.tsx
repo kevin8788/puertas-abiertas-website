@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 }
 
 export default function Ministry() {
+  console.log("aqui")
   return (
     <div className="font-sans ">
       <MinistryPage />

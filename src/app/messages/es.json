@@ -230,7 +230,8 @@
     "event3Title": "Día de Servicio Comunitario",
     "event3Desc": "Únete a nosotros para servir a nuestra comunidad local.",
     "event3Time": "9:00 AM - 2:00 PM",
-    "event3Location": "Varios lugares"
+    "event3Location": "Varios lugares",
+    "loading": "Cargando..."
   },
    "Donate": {
     "title": "Apoya Nuestro Ministerio",
@@ -262,5 +263,6 @@
     "taxDeductible": "Iglesia Puertas Abiertas es una organización 501(c)(3). Todas las donaciones son deducibles de impuestos según lo permitido por la ley.",
     "bibleVerse": "Cada uno debe dar según lo que haya decidido en su corazón, no de mala gana ni por obligación, porque Dios ama al que da con alegría.",
     "bibleReference": "2 Corintios 9:7"
-  }
+  },
+  "loading": "Cargando..."
 }

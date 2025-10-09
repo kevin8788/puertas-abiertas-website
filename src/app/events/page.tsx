@@ -1,4 +1,3 @@
-
 import { Metadata } from "next";
 import Image from "next/image";  
 import MinistryPage from "../pages/ministryPage";
@@ -10,6 +9,7 @@ export const metadata: Metadata = {
 }
 
 export default function Events() {
+  console.log('COMPONENTE MONTADO!!!')
   return (
     <div className="font-sans ">
       <EventsPage />
