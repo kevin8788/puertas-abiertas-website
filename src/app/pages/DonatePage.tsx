@@ -31,7 +31,7 @@ export default function DonatePage() {
         <div className="flex justify-center mb-4">
           <Heart className="text-rose-600" size={64} />
         </div>
-        <h1 className="text-4xl font-bold mb-4">{t('title')}</h1>
+        <h2 className="text-4xl font-bold mb-4">{t('title')}</h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">{t('subtitle')}</p>
       </div>
 

@@ -13,7 +13,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/hero.webp')" }}>
         <div className="absolute pt-50 inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-6">
-          <h1 className="text-4xl md:text-6xl font-bold">{t('heroTitle')}</h1>
+          <h2 className="text-4xl md:text-6xl font-bold">{t('heroTitle')}</h2>
           <p className="text-xl md:text-2xl mb-6">{t('heroSubtitle')}</p>
           <Link href="/about" className="px-6 py-3 bg-rose-600 hover:bg-rose-700 rounded-full text-white text-lg font-semibold">
             {t('knowUs')}

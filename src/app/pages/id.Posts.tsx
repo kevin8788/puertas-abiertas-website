@@ -105,9 +105,9 @@ export default function PostDetailPage() {
 
       {/* Header del post */}
       <header className="mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
           {post.title}
-        </h1>
+        </h2>
         
          
 

@@ -5,7 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import Navbar from "@/components/header/navbar/navbar";
 import Footer from "@/components/footer/footer";
-import { Toaster } from 'react-hot-toast'
+import { Providers } from './providers';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,12 +33,13 @@ export default async function RootLayout({
     <html lang="es">
       <body className={`${geistSans.variable} ${geistMono.variable} font-serif`}>
         <NextIntlClientProvider messages={messages}>
-          <Navbar /> 
-          <main className="pt-20 min-h-screen">
-            <Toaster position="top-center" reverseOrder={false} />
-            {children}
-          </main>
-          <Footer />
+          <Providers>
+            <Navbar /> 
+            <main className="pt-20 min-h-screen">
+              {children}
+            </main>
+            <Footer />
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

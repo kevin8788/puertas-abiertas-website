@@ -28,7 +28,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="relative h-[50vh] bg-gradient-to-br from-rose-600 to-rose-800 text-white">
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
-          <h1 className="text-5xl font-bold mb-4">{t('title')}</h1>
+          <h2 className="text-5xl font-bold mb-4">{t('title')}</h2>
           <p className="text-xl max-w-2xl">{t('motto')}</p>
         </div>
       </section>

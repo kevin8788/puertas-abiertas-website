@@ -1,47 +1,45 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
-
-const ADMINS = [
-  {
-    id: "1",
-    email: "admin@puertasabiertas.org",
-    password: "$2a$10$...", // Hash de la contraseña
-    name: "Admin",
-    role: "admin"
-  }
-]
+import User from "@/config/models/user";
+import connectDB from "../../../../config/db";
 
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
+        username: { label: "username", type: "text" },
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+        if (!credentials?.username || !credentials?.password) {
+          return null
+        }
+ 
+        
+        // if (!admin) {
+        //   return null
+        // }
+
+        await connectDB();
+        let user = await User.findOne({ username: credentials.username, isActive: { $ne: false } });
+ 
+        if (!user) {
           return null
         }
 
-        const admin = ADMINS.find(a => a.email === credentials.email)
-        
-        if (!admin) {
-          return null
-        }
-
-        const isValid = await bcrypt.compare(credentials.password, admin.password)
-        
+   
+        const isValid = await bcrypt.compare(credentials.password, user.password); 
         if (!isValid) {
           return null
         }
 
         return {
-          id: admin.id,
-          email: admin.email,
-          name: admin.name,
-          role: admin.role
+          id: user.id,
+          username: user.email,
+          name: user.name, 
+          isAdmin: user.isAdmin,
         }
       }
     })
