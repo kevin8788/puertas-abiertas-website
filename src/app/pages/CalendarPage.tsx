@@ -3,8 +3,18 @@
 import { useTranslations } from 'next-intl'
 import { Calendar as CalendarIcon, Clock, MapPin } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { Event } from './EventsPage';
+
 import moment from 'moment-timezone'
+
+interface Event {
+  id: string,
+  title: string,
+  description: string,
+  date: string,
+  time: string,
+  location: string,
+  image: string
+}
 
 export default function CalendarPage() {
   const t = useTranslations('Calendar')

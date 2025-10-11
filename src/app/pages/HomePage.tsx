@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import CustomCarousel from '@/components/carousel/carouselt'
 
 export default function Home() {
   const t = useTranslations('Home')
@@ -55,6 +56,11 @@ export default function Home() {
           {t('planVisit')}
         </Link>
       </section>
+
+      {/* center carousel section */}
+      <div className="py-12 px-6 max-w-6xl mx-auto">
+        <CustomCarousel />
+      </div>
     </div>
   )
 }

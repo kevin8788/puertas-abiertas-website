@@ -8,6 +8,8 @@ import mongoose from "mongoose";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 
+const bcrypt = require('bcryptjs');
+
 export async function POST(request: Request) {
   try {
     await connectDB();
@@ -24,33 +26,38 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
+    let hashedPassword = await bcrypt.hash(password, 10);
+    
+
+
    const newUser = await User.create({
       name,
       username,
-      password, 
+      password: hashedPassword
     });
 
-    console.log(newUser)
-
-    // const docRef = await addDoc(collection(getFirestore(app), "events"), newEvent);
-    // console.log("Document successfully written with ID: ", docRef.id);
-
-    // console.log(db);
-    // let events = await collection(db, "events");
-    // const eventSnapshot = await getDocs(events);
-    // const eventsData = eventSnapshot.docs.map(doc => doc.data())
-    
-
-    //add new event to firabese collection events
-
-    // await addDoc(events, newEvent);
-
-    // console.log(eventsData)
+   
     
 
     return NextResponse.json(newUser, { status: 201 })
   } catch (error : any) {
     console.log(error.message); 
     return NextResponse.json({ error: 'Error creating user, ' + error.message }, { status: 500 })
+  }
+}
+
+
+export async function GET() {
+  try {
+    await connectDB();
+    // const session = await getServerSession(authOptions)
+    let users = await User.find({ isActive: { $ne: false } }).select('-password').sort({ createdAt: -1});
+    const formatted = users.map((user) => ({
+      ...user._doc,
+      id: user._id.toString(), 
+    }));
+    return NextResponse.json(formatted, { status: 200 });
+  } catch (ex: any) {
+    return NextResponse.json({ error: 'Error fetching users, ' + ex.message }, { status: 500 })
   }
 }

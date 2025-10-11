@@ -1,6 +1,6 @@
 //we are going to export a json object with some variables
 
- const VARIABLES = {
+ const VARIABLES = { 
     defaultImageUrl: '',
     timezone: 'America/Los_Angeles',
     dateFormat: 'MM/DD/YYYY',

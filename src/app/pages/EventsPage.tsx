@@ -1,32 +1,58 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
-import { Calendar, Clock, MapPin } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
-export interface Event {
+interface Post {
   id: string
+  slug: string
   title: string
   description: string
-  date: string
-  time: string
-  location: string
-  image?: string
+  content: string
+  image: string
+  createdAt: string
 }
 
-export default function EventsPage() {  
-  const t = useTranslations('Events') 
-  const [events, setEvents] = useState<Event[]>([])
-  const [loading, setLoading] = useState(true)
+export default function PostsPage() {
+  const [email, setEmail] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState('')
+  const [posts, setPosts] = useState<Post[]>([]);
   const [error, setError] = useState<string | null>(null)
- 
 
-  useEffect(() => { 
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    setMessage('')
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setMessage('¡Suscripción exitosa! Revisa tu email.')
+        setEmail('')
+      } else {
+        setMessage(data.error || 'Error al suscribirse')
+      }
+    } catch (error) {
+      setMessage('Error al procesar la solicitud')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+   useEffect(() => { 
     fetchEvents();
   }, [])
 
   useEffect(() => { 
-  }, [events])
+  }, [posts])
 
   const fetchEvents = async () => { 
     try {
@@ -42,7 +68,7 @@ export default function EventsPage() {
       
       const data = await response.json();  
 
-      setEvents(data) 
+      setPosts(data) 
     } catch (error) { 
       setError(error instanceof Error ? error.message : 'Error desconocido')
     } finally { 
@@ -50,59 +76,80 @@ export default function EventsPage() {
     }
   }
  
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl">Cargando...</div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-xl text-red-600">Error: {error}</div>
-      </div>
-    )
-  }
 
   return (
-    <div className="max-w-6xl mx-auto px-6 py-12 gap-2">
+    <div className="max-w-6xl mx-auto px-6 py-12">
+      {/* Header con suscripción */}
       <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">Posts</h2>
-        <p className="text-lg text-gray-600">Quieres recibir nuestros posts?, subscribete</p>
-        <input type="email" placeholder='youremail@email.com' className="w-md px-4 py-2 border rounded-lg"/>
-         <button
-                type="submit"
-                className="w-2xs bg-rose-600 hover:bg-rose-700 text-white py-3 rounded-lg font-semibold ml-4"
-              >
-                Suscribirse
-              </button>
+        <h1 className="text-4xl font-bold mb-4">Posts</h1>
+        <p className="text-lg text-gray-600 mb-6">
+          Quieres recibir nuestros posts?, suscríbete
+        </p>
+        
+        <form onSubmit={handleSubscribe} className="max-w-md mx-auto flex gap-2">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="youremail@email.com"
+            className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
+            required
+            disabled={loading}
+          />
+          <button
+            type="submit"
+            disabled={loading}
+            className="bg-rose-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-rose-700 transition disabled:opacity-50"
+          >
+            {loading ? 'Enviando...' : 'Suscribirse'}
+          </button>
+        </form>
+        
+        {message && (
+          <p className={`mt-4 text-sm ${message.includes('exitosa') ? 'text-green-600' : 'text-red-600'}`}>
+            {message}
+          </p>
+        )}
       </div>
-      
-      {events.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-gray-500 text-lg">No hay Posts disponibles</p>
-        </div>
-      ) : (
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
-          {events.map((event) => (
-            <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
-              {event.image && (
-                <div className="h-48 bg-gray-200 overflow-hidden">
-                  <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
-                </div>
-              )}
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3">{event.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">{event.description}</p>
-                
-                 
+
+      {/* Grid de posts */}
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <article key={post.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <Link href={`/posts/${post.id}`}>
+              <div className="h-48 bg-gray-200 overflow-hidden">
+                <img 
+                  src={post.image} 
+                  alt={post.title} 
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                />
               </div>
+            </Link>
+            
+            <div className="p-6">
+              <Link href={`/posts/${post.id}`}>
+                <h3 className="text-xl font-bold mb-2 hover:text-rose-600 transition">
+                  {post.title}
+                </h3>
+              </Link>
+              
+              <p className="text-gray-600 mb-4 line-clamp-3">
+                {post.description}
+              </p>
+              
+              <Link 
+                href={`/posts/${post.id}`}
+                className="text-rose-600 font-semibold hover:text-rose-700 transition inline-flex items-center gap-1"
+              >
+                Leer más
+                <span>→</span>
+              </Link>
             </div>
-          ))}
-        </div>
-      )}
+          </article>
+        ))}
+      </div>
     </div>
   )
 }
+
+
