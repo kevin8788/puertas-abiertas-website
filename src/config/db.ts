@@ -33,6 +33,14 @@
 
 // lib/mongoose.ts
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const MONGODB_URI = process.env.MONGODB_URI as string;
+
+if (!MONGODB_URI) {
+  throw new Error('⚠️ Please define the MONGODB_URI environment variable');
+}
 
 let cached = (global as any).mongoose;
 
@@ -40,27 +48,15 @@ if (!cached) {
   cached = (global as any).mongoose = { conn: null, promise: null };
 }
 
-async function connectDB() { 
-  const MONGODB_URI = process.env.MONGODB_URI;
-
-  if (!MONGODB_URI) {
-    console.error('⚠️ MONGODB_URI no está definida en las variables de entorno.');
-    throw new Error('MONGODB_URI environment variable missing');
-  }
-
-  if (cached.conn) {
-    return cached.conn;
-  }
+async function connectDB() {
+  if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
     cached.promise = mongoose.connect(MONGODB_URI, {
       bufferCommands: false,
     }).then((mongoose) => {
-      console.log('✅ MongoDB conectado exitosamente');
+      console.log('✅ Connected to MongoDB');
       return mongoose;
-    }).catch((err) => {
-      console.error('❌ Error conectando a MongoDB:', err.message);
-      throw err;
     });
   }
 
