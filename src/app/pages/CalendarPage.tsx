@@ -59,7 +59,7 @@ export default function CalendarPage() {
     const dateTime = moment.tz(`${dateString} ${timeString}`, 'America/Los_Angeles')
     //format a 12-hour format with AM/PM
     return dateTime.format('hh:mm A')
-  }
+  } 
 
   if (loading) {
     return (
