@@ -29,7 +29,7 @@ export default function CalendarPage() {
   const fetchEvents = async () => { 
     try {
       const baseUrl = window.location.origin; 
-      const url = `${baseUrl}/api/test` 
+      const url = `${baseUrl}/api/event` 
       const response = await fetch(url); 
       
       if (!response.ok) {
@@ -57,7 +57,8 @@ export default function CalendarPage() {
   const formatTime = (timeString: string, dateString: string) => {
     // Combinar fecha y hora para procesarla correctamente
     const dateTime = moment.tz(`${dateString} ${timeString}`, 'America/Los_Angeles')
-    return dateTime.format('HH:mm')
+    //format a 12-hour format with AM/PM
+    return dateTime.format('hh:mm A')
   }
 
   if (loading) {

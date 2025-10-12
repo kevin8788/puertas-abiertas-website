@@ -16,10 +16,16 @@ export async function POST(request: Request) {
     // }
 
     const body = await request.json()
-    const { title, description, image } = body
+    let { title, description, image } = body
 
-    if (!title || !description || !image) {
+    if (!title || !description) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
+    }
+
+    
+    if(!image) {
+      image = "https://res.cloudinary.com/dbg69ivju/image/upload/v1760229665/WhatsApp_Image_2025-10-11_at_5.33.03_PM_ydrrx5.jpg"
+      
     }
 
    const newPost = await Post.create({
@@ -40,7 +46,9 @@ export async function GET(request: Request) {
   try {
     
     await connectDB();
-    let posts = await Post.find({ isActive: { $ne: false } }).sort({ date: 1, time: 1 });
+    //lets return last post first
+
+    let posts = await Post.find({ isActive: { $ne: false } }).sort({ createdAt: -1 });
     const formatted = posts.map((post) => ({
   ...post._doc,
   id: post._id.toString(), 
@@ -50,5 +58,31 @@ return NextResponse.json(formatted, { status: 200 });
   } catch (ex: any) {
     console.log(ex.message);
     return NextResponse.json({error: ex.message}, {status: 500})
+  }
+}
+
+export async function DELETE(request: Request) {
+  try {
+    let { searchParams } = new URL(request.url);
+    let id = searchParams.get('id');
+    if(!id) {
+      return NextResponse.json({ error: 'Event Id must be provided' }, { status: 400 });
+    }
+
+    await connectDB();
+
+    let post = await Post.findOne({ _id: id });
+    if(!post) {
+      return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+    }
+
+    const objectId = new mongoose.Types.ObjectId(id);
+    const result = await Post.updateOne({ _id: objectId }, { $set: { isActive: false }});
+   
+    return NextResponse.json({ message: 'post deleted successfully' }, { status: 200 });
+    
+  } catch (ex: any) {
+    console.log(ex.message);
+    return NextResponse.json({ error: ex.message }, { status: 500 });
   }
 }

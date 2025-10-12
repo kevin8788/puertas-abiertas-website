@@ -18,7 +18,7 @@
   "Footer": {
     "churchName": "Iglesia Puertas Abiertas",
     "address": "14320 Nordhoff St, Panorama City, CA 91402",
-    "schedule": "Thursday 6:30 PM · Sundays 9 AM, 10:30 AM, 12 PM",
+    "schedule": "Tuesday 7:00 PM · Wednesday 7:30 PM ·  Sundays 10:00 AM",
     "aboutUs": "About Us",
     "contact": "Contact Us",
     "donate": "Donate",
@@ -35,7 +35,8 @@
     "heroSubtitle": "A community with eternal purpose",
     "knowUs": "Get to Know Us",
     "scheduleTitle": "Service Times",
-    "thursday": "Thursday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
     "sunday": "Sunday",
     "locationTitle": "Location",
     "planVisit": "Plan Your Visit",
@@ -131,7 +132,9 @@
     "nameLabel": "Name",
     "messageLabel": "Message",
     "submitButton": "Send Message",
-    "successMessage": "Thank you for your message! We'll contact you soon."
+    "successMessage": "Thank you for your message! We'll contact you soon.",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday"
   },
   "Ministry": {
     "title": "Our Ministries",

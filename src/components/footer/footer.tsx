@@ -62,6 +62,12 @@ const Footer = () => {
             <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
               <Youtube />
             </a>
+            <a href="https://www.facebook.com/people/Iglesia-Cristiana-Puertas-Abiertas/61561360096792/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+              <Facebook />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+              <Youtube />
+            </a>
           </div>
         </div>
       </div>

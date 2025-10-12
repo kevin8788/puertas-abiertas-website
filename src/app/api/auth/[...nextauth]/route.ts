@@ -1,8 +1,8 @@
 import NextAuth, { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
-import User from "@/config/models/user";
-import connectDB from "../../../../config/db";
+import User from "@/config/models/user"
+import connectDB from "../../../../config/db"
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -16,45 +16,67 @@ export const authOptions: NextAuthOptions = {
         if (!credentials?.username || !credentials?.password) {
           return null
         }
- 
-        
-        // if (!admin) {
-        //   return null
-        // }
 
-        await connectDB();
-        let user = await User.findOne({ username: credentials.username, isActive: { $ne: false } });
+        await connectDB()
+        
+        const user = await User.findOne({ 
+          username: credentials.username, 
+          isActive: { $ne: false } 
+        })
  
+
         if (!user) {
           return null
         }
 
-   
-        const isValid = await bcrypt.compare(credentials.password, user.password); 
+        const isValid = await bcrypt.compare(credentials.password, user.password)
+        
         if (!isValid) {
           return null
         }
-
-        return {
-          id: user.id,
-          username: user.email,
-          name: user.name, 
-          isAdmin: user.isAdmin,
+ 
+        const userData = {
+          id: user._id.toString(), 
+          username: user.username,
+          name: user.name,
+          isAdmin: user.isAdmin === true
         }
+ 
+
+        return userData
       }
     })
   ],
   callbacks: {
-    async jwt({ token, user } : {token: any, user: any}) {
+    async jwt({ token, user, trigger, session }) {
+     
+      
       if (user) {
-        token.role = user.role
+        token.id = user.id
+        token.email = user.email
+        token.username = user.username
+        token.name = user.name
+        token.isAdmin = user.isAdmin  
       }
+      
+      if (trigger === 'update' && session) {
+        token = { ...token, ...session }
+      }
+       
+      
       return token
     },
-    async session({ session, token } : {session: any, token: any}) {
+    
+    async session({ session, token }) { 
+      
       if (session?.user) {
-        session.user.role = token.role
+        session.user.id = token.id as string
+        session.user.username = token.username as string
+        session.user.name = token.name as string
+        session.user.isAdmin = token.isAdmin as boolean
       }
+       
+      
       return session
     }
   },

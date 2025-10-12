@@ -67,8 +67,9 @@ export default function ContactPage() {
             <Clock className="text-rose-600 mt-1" size={24} />
             <div>
               <h3 className="font-semibold mb-1">{t('scheduleLabel')}</h3>
-              <p className="text-gray-600">{t('thursday')}: 6:30 PM</p>
-              <p className="text-gray-600">{t('sunday')}: 9:00 AM, 10:30 AM, 12:00 PM</p>
+              <p className="text-gray-600">{t('tuesday')}: 7:00 PM</p> 
+              <p className='text-gray-600'>{t('wednesday')}: 7:30 PM</p>
+              <p className="text-gray-600">{t('sunday')}: 10:00 AM</p>
             </div>
           </div>
         </div>

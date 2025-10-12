@@ -6,7 +6,8 @@ const UserSchema = new mongoose.Schema({
   username: String,
   password: String,
   createdAt: { type: Date, default: Date.now },
-  isActive: { type: Boolean, default: true }
+  isActive: { type: Boolean, default: true },
+  isAdmin: { type: Boolean, default: false },
 });
 
 export default mongoose.models.User || mongoose.model('User', UserSchema);

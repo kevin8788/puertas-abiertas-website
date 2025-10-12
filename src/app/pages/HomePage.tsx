@@ -11,8 +11,18 @@ export default function Home() {
   return (
     <div className="w-full bg-white text-gray-800">
       {/* Hero Section */}
-      <section className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/hero.webp')" }}>
-        <div className="absolute pt-50 inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-6">
+      <section className="relative h-[70vh] overflow-hidden">
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="https://res.cloudinary.com/dbg69ivju/video/upload/v1760229633/WhatsApp_Video_2025-10-11_at_5.34.04_PM_t8j0vf.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+
+        {/* 🔳 Capa oscura encima del video + contenido */}
+        <div className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-center text-white px-6 z-10">
           <h2 className="text-4xl md:text-6xl font-bold">{t('heroTitle')}</h2>
           <p className="text-xl md:text-2xl mb-6">{t('heroSubtitle')}</p>
           <Link href="/about" className="px-6 py-3 bg-rose-600 hover:bg-rose-700 rounded-full text-white text-lg font-semibold">
@@ -25,8 +35,9 @@ export default function Home() {
       <section className="py-12 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         <div className="bg-slate-100 p-6 rounded-xl shadow-md space-y-4">
           <h2 className="text-2xl font-bold text-slate-800">{t('scheduleTitle')}</h2>
-          <p><strong>{t('thursday')}:</strong> 6:30 PM</p>
-          <p><strong>{t('sunday')}:</strong> 9:00 AM, 10:30 AM, 12:00 PM</p>
+          <p><strong>{t('tuesday')}:</strong> 7:00 PM</p>
+          <p><strong>{t('wednesday')}:</strong> 7:30 PM</p>
+          <p><strong>{t('sunday')}:</strong> 10:00 AM</p>
 
           <h2 className="text-2xl font-bold mt-6 text-slate-800">{t('locationTitle')}</h2>
           <p>14320 Nordhoff St, Panorama City, CA 91402</p>

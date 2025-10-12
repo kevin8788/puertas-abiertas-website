@@ -16,11 +16,16 @@ export async function POST(request: Request) {
     // }
 
     const body = await request.json()
-    const { title, description, date, time, location, image } = body
+    let { title, description, date, time, location, image } = body
 
     if (!title || !description || !date || !time || !location) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
+    
+    if(!image) {
+      image = "https://res.cloudinary.com/dbg69ivju/image/upload/v1760229665/WhatsApp_Image_2025-10-11_at_5.33.03_PM_ydrrx5.jpg"
+      
+    } 
 
    const newEvent = await Event.create({
       title,
@@ -78,11 +83,8 @@ return NextResponse.json(formatted, { status: 200 });
 
 export async function DELETE(request: Request) {
   try {
-    console.log("mas mostro que los de thriller")
     let { searchParams } = new URL(request.url);
     let id = searchParams.get('id');
-    console.log(id);
-    console.log("deleting")
     if(!id) {
       return NextResponse.json({ error: 'Event Id must be provided' }, { status: 400 });
     }

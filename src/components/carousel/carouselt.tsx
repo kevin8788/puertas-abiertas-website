@@ -6,13 +6,15 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react'; 
 
 const slides = [
-  { id: 1, src: 'https://www.agenciapi.co/sites/default/files/2022-01/iglesiacristiana.jpg', alt: 'Slide 1' },
-  { id: 2, src: 'https://www.arthurefc.org/cms_files/slideshow_jquery/slideshow56516_28.jpg', alt: 'Slide 2' },
-  { id: 3, src: 'https://www.billboard.com/wp-content/uploads/2024/08/elevation-worship-2024-billboard-pro-1260.jpg', alt: 'Slide 3' },
-  { id: 4, src: 'https://lirp.cdn-website.com/08d31351/dms3rep/multi/opt/423483-5-largest-christian-music-festival-640w.jpg', alt: 'Slide 3' },
-  { id: 5, src: 'https://images.seattletimes.com/wp-content/uploads/2025/08/08202025_Let-Us-Worship_074510.jpg?d=780x520', alt: 'Slide 3' },
-  { id: 6, src: 'https://s3.amazonaws.com/e-zekiel/sites/fb225d34-ee7b-11e4-b3be-6ad50a5a3da0/images/23655/aisle_and_pews-medium.jpg?1490281647', alt: 'Slide 3' },
-  { id: 7, src: 'https://images.squarespace-cdn.com/content/v1/5730e03e9f72668963fa70b5/1677093645666-U7BQUR8MKJHG01GG5R6Q/HCC_Feb_2023_Swidrak%26Co-88.jpg?format=2500w', alt: 'Slide 3' },
+  { id: 1, src: 'https://res.cloudinary.com/dbg69ivju/image/upload/v1760229674/WhatsApp_Image_2025-10-11_at_5.33.49_PM_u8zjne.jpg', alt: 'Slide 1' },
+  { id: 2, src: 'https://res.cloudinary.com/dbg69ivju/image/upload/v1760229670/WhatsApp_Image_2025-10-11_at_5.33.17_PM_izomrg.jpg', alt: 'Slide 2' },
+  { id: 3, src: 'https://res.cloudinary.com/dbg69ivju/image/upload/v1760229615/WhatsApp_Image_2025-10-11_at_5.34.23_PM_hj9lng.jpg', alt: 'Slide 3' },
+  { id: 4, src: 'https://res.cloudinary.com/dbg69ivju/image/upload/v1760229596/WhatsApp_Image_2025-10-11_at_5.35.07_PM_job283.jpg', alt: 'Slide 3' },
+  { id: 5, src: 'https://res.cloudinary.com/dbg69ivju/image/upload/v1760229622/WhatsApp_Image_2025-10-11_at_5.34.13_PM_rcjksk.jpg', alt: 'Slide 3' },
+  { id: 6, src: 'https://res.cloudinary.com/dbg69ivju/image/upload/v1760229665/WhatsApp_Image_2025-10-11_at_5.33.03_PM_ydrrx5.jpg', alt: 'Slide 3' },
+  { id: 7, src: 'https://res.cloudinary.com/dbg69ivju/image/upload/v1760229610/WhatsApp_Image_2025-10-11_at_5.34.38_PM_btxvw7.jpg', alt: 'Slide 3' },
+  { id: 8, src: 'https://res.cloudinary.com/dbg69ivju/image/upload/v1760229606/WhatsApp_Image_2025-10-11_at_5.34.48_PM_ywa8kj.jpg', alt: 'Slide 3' },
+
 ];
 
 const CustomCarousel = () => {

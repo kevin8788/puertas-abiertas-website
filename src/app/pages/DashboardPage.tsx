@@ -30,7 +30,9 @@ interface User {
   name: string
   username: string 
   createdAt: string
+  isAdmin: boolean
 }
+ 
 
 export default function AdminDashboard() {
   const { data: session, status } = useSession()
@@ -62,17 +64,17 @@ export default function AdminDashboard() {
   const [formUserData, setFormUserData] = useState({
     name: '',
     username: '', 
-    password: ''
+    password: '',
+    isAdmin: false
   })
-
-  // ✅ Protección de ruta - Redirige si no está autenticado
+ 
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/admin/login')
     }
   }, [status, router])
 
-  // ✅ Carga datos solo cuando hay sesión
+ 
   useEffect(() => {
     if (status === 'authenticated' && session) {
       fetchEvents()
@@ -81,15 +83,15 @@ export default function AdminDashboard() {
     }
   }, [status, session])
 
-  // ✅ Fetch con autenticación
+ 
   const fetchEvents = async () => { 
     try {
       setLoading(true)
-      const response = await fetch('/api/test', {
+      const response = await fetch('/api/event', {
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // Incluye cookies de sesión
+        credentials: 'include',  
       })
       
       if (!response.ok) {
@@ -151,11 +153,13 @@ export default function AdminDashboard() {
     }
   }
 
+  console.log(session)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
     try {
-      const response = await fetch('/api/events', {
+      const response = await fetch('/api/event', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -221,7 +225,7 @@ export default function AdminDashboard() {
       console.log('Usuario creado:', data)
       
       toast.success('Usuario creado exitosamente')
-      setFormUserData({ name: '', username: '', password: '' })
+      setFormUserData({ name: '', username: '', password: '', isAdmin: false })
       setShowUserForm(false)
       await fetchUsers()
     } catch (ex: any) {
@@ -231,37 +235,63 @@ export default function AdminDashboard() {
   }
 
   const handleDelete = async (id: string, type: 'event' | 'post' | 'user') => {
-    if (!confirm(`¿Estás seguro de eliminar este ${type === 'event' ? 'evento' : type === 'post' ? 'post' : 'usuario'}?`)) return
+  const label =
+    type === 'event' ? 'evento' :
+    type === 'post' ? 'post' : 'usuario'
 
-    try {
-      const endpoints = {
-        event: `/api/test?id=${id}`,
-        post: `/api/post/${id}`,
-        user: `/api/user/${id}`
-      }
+  toast.custom((t) => (
+    <div
+      className={`${
+        t.visible ? 'animate-custom-enter' : 'animate-custom-leave'
+      } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex flex-col ring-1 ring-black ring-opacity-5`}
+    >
+      <div className="p-4">
+        <h2 className="text-lg font-semibold text-gray-900">¿Eliminar {label}?</h2>
+        <p className="text-sm text-gray-600 mt-1">Esta acción no se puede deshacer.</p>
+      </div>
 
-      const response = await fetch(endpoints[type], {
-        method: 'DELETE',
-        credentials: 'include',
-      })
+      <div className="flex border-t border-gray-200 divide-x divide-gray-200">
+        <button
+          onClick={() => toast.dismiss(t.id)}
+          className="w-1/2 p-3 text-center text-sm font-medium text-gray-700 hover:bg-gray-100"
+        >
+          Cancelar
+        </button>
+        <button
+          onClick={async () => {
+            toast.dismiss(t.id)
+            try {
+              const endpoints = {
+                event: `/api/event/?id=${id}`,
+                post: `/api/post/?id=${id}`,
+                user: `/api/user/?id=${id}`
+              }
 
-      if (!response.ok) {
-        throw new Error('Error al eliminar')
-      }
+              const response = await fetch(endpoints[type], {
+                method: 'DELETE',
+                credentials: 'include',
+              })
 
-      toast.success(`${type === 'event' ? 'Evento' : type === 'post' ? 'Post' : 'Usuario'} eliminado`)
-      
-      // Recargar la lista correspondiente
-      if (type === 'event') await fetchEvents()
-      if (type === 'post') await fetchPosts()
-      if (type === 'user') await fetchUsers()
-    } catch (error) {
-      console.error('Error deleting:', error)
-      toast.error('Error al eliminar')
-    }
-  }
+              if (!response.ok) throw new Error('Error al eliminar')
 
-  // ✅ Loading state mientras verifica sesión
+              toast.success(`${label.charAt(0).toUpperCase() + label.slice(1)} eliminado`)
+
+              if (type === 'event') await fetchEvents()
+              if (type === 'post') await fetchPosts()
+              if (type === 'user') await fetchUsers()
+            } catch (error) { 
+              toast.error('Error al eliminar', { duration: 400, style: { animation: 'none' } })
+            }
+          }}
+          className="w-1/2 p-3 text-center text-sm font-medium text-red-600 hover:bg-red-50"
+        >
+          Sí, eliminar
+        </button>
+      </div>
+    </div>
+  ))
+}
+
   if (status === 'loading') {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -270,10 +300,11 @@ export default function AdminDashboard() {
     )
   }
 
-  // ✅ Si no hay sesión, no mostrar nada (redirige automáticamente)
+
   if (!session) {
     return null
   }
+ 
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
@@ -493,7 +524,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* Users Management */}
-        <div className='mt-6 bg-white rounded-lg shadow-md p-6'>
+       {  session.user?.isAdmin && ( <div className='mt-6 bg-white rounded-lg shadow-md p-6'>
           <div className='flex justify-between items-center mb-6'>
              <h2 className='text-2xl font-bold flex items-center gap-2'>
               Gestión de Usuarios
@@ -539,6 +570,17 @@ export default function AdminDashboard() {
                   className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-rose-500 focus:outline-none"
                 />
               </div>
+              {/* add isAdmin boolean value */}
+              <div>
+                <label className="block mb-2 font-medium">Es Administrador</label>
+                <input
+                  type="checkbox"
+                  title='si'
+                  checked={formUserData.isAdmin || false}
+                  onChange={(e) => setFormUserData({ ...formUserData, isAdmin: e.target.checked })}
+                  className="h-4 w-4 text-rose-600 focus:ring-rose-500 border-gray-300 rounded"
+                />
+              </div>
               <button
                 type="submit"
                 className="w-full bg-rose-600 hover:bg-rose-700 text-white py-3 rounded-lg font-semibold transition"
@@ -571,7 +613,7 @@ export default function AdminDashboard() {
               ))
             )}
           </div>
-        </div>
+        </div>)}
       </div>
     </div>
   )
