@@ -63,6 +63,90 @@ export async function GET() {
   }
 }
 
+export async function PUT(request: Request) {
+  try {
+    await connectDB()
+    
+    const { searchParams } = new URL(request.url)
+    const id = searchParams.get('id')
+    
+    if (!id) {
+      return NextResponse.json(
+        { error: 'ID es requerido' },
+        { status: 400 }
+      )
+    }
+    
+    const body = await request.json()
+    const { name, username, password, isAdmin } = body
+    
+    // Validación
+    if (!name || !username) {
+      return NextResponse.json(
+        { error: 'Nombre y username son requeridos' },
+        { status: 400 }
+      )
+    }
+    
+    // Verificar si el username ya existe en otro usuario
+    const existingUser = await User.findOne({ 
+      username, 
+      _id: { $ne: id } // Excluye el usuario actual
+    })
+    
+    if (existingUser) {
+      return NextResponse.json(
+        { error: 'El username ya está en uso' },
+        { status: 400 }
+      )
+    }
+    
+    // Preparar datos para actualizar
+    const updateData: any = {
+      name,
+      username,
+      isAdmin: isAdmin ?? false,
+    }
+    
+    // Solo actualizar password si se proporcionó uno nuevo
+    if (password && password.trim() !== '') {
+      const hashedPassword = await bcrypt.hash(password, 10)
+      updateData.password = hashedPassword
+    }
+    
+    // Actualizar usuario
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      updateData,
+      { new: true, runValidators: true }
+    )
+    
+    if (!updatedUser) {
+      return NextResponse.json(
+        { error: 'Usuario no encontrado' },
+        { status: 404 }
+      )
+    }
+    
+    // No devolver la contraseña
+    const userResponse = {
+      id: updatedUser._id,
+      name: updatedUser.name,
+      username: updatedUser.username,
+      isAdmin: updatedUser.isAdmin,
+      createdAt: updatedUser.createdAt,
+    }
+    
+    return NextResponse.json(userResponse)
+  } catch (error) {
+    console.error('Error updating user:', error)
+    return NextResponse.json(
+      { error: 'Error al actualizar usuario' },
+      { status: 500 }
+    )
+  }
+}
+
 
 export async function DELETE(request: Request) {
   try {

@@ -87,30 +87,32 @@ export default function PostsPage() {
           Quieres recibir nuestros posts?, suscríbete
         </p>
         
-        <form onSubmit={handleSubscribe} className="max-w-md mx-auto flex gap-2">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="youremail@email.com"
-            className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
-            required
-            disabled={loading}
-          />
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-rose-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-rose-700 transition disabled:opacity-50"
-          >
-            {loading ? 'Enviando...' : 'Suscribirse'}
-          </button>
-        </form>
-        
-        {message && (
-          <p className={`mt-4 text-sm ${message.includes('exitosa') ? 'text-green-600' : 'text-red-600'}`}>
-            {message}
-          </p>
-        )}
+        <div className="flex flex-col items-center justify-center w-full px-4">
+  <form onSubmit={handleSubscribe} className="w-full max-w-md flex flex-col sm:flex-row gap-2">
+    <input
+      type="email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      placeholder="youremail@email.com"
+      className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
+      required
+      disabled={loading}
+    />
+    <button
+      type="submit"
+      disabled={loading}
+      className="bg-rose-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-rose-700 transition disabled:opacity-50 whitespace-nowrap"
+    >
+      {loading ? 'Enviando...' : 'Suscribirse'}
+    </button>
+  </form>
+  
+  {message && (
+    <p className={`mt-4 text-sm text-center ${message.includes('exitosa') ? 'text-green-600' : 'text-red-600'}`}>
+      {message}
+    </p>
+  )}
+</div>
       </div>
 
       {/* Grid de posts */}

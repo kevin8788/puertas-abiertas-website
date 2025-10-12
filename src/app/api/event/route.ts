@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     if (!title || !description || !date || !time || !location) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
-    
+
     if(!image) {
       image = "https://res.cloudinary.com/dbg69ivju/image/upload/v1760229665/WhatsApp_Image_2025-10-11_at_5.33.03_PM_ydrrx5.jpg"
       
@@ -77,6 +77,62 @@ return NextResponse.json(formatted, { status: 200 });
   } catch (ex: any) {
     console.log(ex.message);
     return NextResponse.json({error: ex.message}, {status: 500})
+  }
+}
+
+export async function PUT(request: Request) {
+  try {
+    await connectDB()
+    
+    const { searchParams } = new URL(request.url)
+    const id = searchParams.get('id')
+    
+    if (!id) {
+      return NextResponse.json(
+        { error: 'ID es requerido' },
+        { status: 400 }
+      )
+    }
+    
+    const body = await request.json()
+    const { title, description, date, time, location, image } = body
+    
+    // Validación
+    if (!title || !description || !date || !time || !location) {
+      return NextResponse.json(
+        { error: 'Todos los campos son requeridos excepto imagen' },
+        { status: 400 }
+      )
+    }
+    
+    // Actualizar evento
+    const updatedEvent = await Event.findByIdAndUpdate(
+      id,
+      {
+        title,
+        description,
+        date,
+        time,
+        location,
+        image: image || '',
+      },
+      { new: true, runValidators: true }
+    )
+    
+    if (!updatedEvent) {
+      return NextResponse.json(
+        { error: 'Evento no encontrado' },
+        { status: 404 }
+      )
+    }
+    
+    return NextResponse.json(updatedEvent)
+  } catch (error) {
+    console.error('Error updating event:', error)
+    return NextResponse.json(
+      { error: 'Error al actualizar evento' },
+      { status: 500 }
+    )
   }
 }
 

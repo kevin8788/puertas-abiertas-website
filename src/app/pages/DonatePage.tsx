@@ -167,9 +167,7 @@ export default function DonatePage() {
                   <h4 className="font-semibold mb-1">{t('bankTransferTitle')}</h4>
                   <p className="text-sm text-gray-600">{t('bankTransferDesc')}</p>
                   <div className="mt-2 text-sm bg-white p-3 rounded">
-                    <p><strong>{t('bankName')}:</strong> Bank of America</p>
-                    <p><strong>{t('accountNumber')}:</strong> 1234567890</p>
-                    <p><strong>{t('routingNumber')}:</strong> 123456789</p>
+                    <p><strong>{t('bankName')}:</strong> 818-1234-5678</p> 
                   </div>
                 </div>
               </div>

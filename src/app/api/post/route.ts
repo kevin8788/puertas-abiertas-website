@@ -61,6 +61,59 @@ return NextResponse.json(formatted, { status: 200 });
   }
 }
 
+export async function PUT(request: Request) {
+  try {
+    await connectDB()
+    
+    const { searchParams } = new URL(request.url)
+    const id = searchParams.get('id')
+    
+    if (!id) {
+      return NextResponse.json(
+        { error: 'ID es requerido' },
+        { status: 400 }
+      )
+    }
+    
+    const body = await request.json()
+    const { title, description, image } = body
+    
+    // Validación
+    if (!title || !description) {
+      return NextResponse.json(
+        { error: 'Título y descripción son requeridos' },
+        { status: 400 }
+      )
+    }
+    
+    // Actualizar post
+    const updatedPost = await Post.findByIdAndUpdate(
+      id,
+      {
+        title,
+        description,
+        image: image || '',
+      },
+      { new: true, runValidators: true }
+    )
+    
+    if (!updatedPost) {
+      return NextResponse.json(
+        { error: 'Post no encontrado' },
+        { status: 404 }
+      )
+    }
+    
+    return NextResponse.json(updatedPost)
+  } catch (error) {
+    console.error('Error updating post:', error)
+    return NextResponse.json(
+      { error: 'Error al actualizar post' },
+      { status: 500 }
+    )
+  }
+}
+
 export async function DELETE(request: Request) {
   try {
     let { searchParams } = new URL(request.url);

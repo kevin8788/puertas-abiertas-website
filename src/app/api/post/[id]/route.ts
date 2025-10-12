@@ -17,3 +17,11 @@ return NextResponse.json(post, { status: 200 });
     return NextResponse.json({error: ex.message}, {status: 500})
   }
 }
+
+export async function POST(params: Request) {
+  try {
+    console.log("aqui");
+  } catch (ex: any) {
+    
+  }
+}
