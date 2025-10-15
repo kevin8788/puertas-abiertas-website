@@ -6,6 +6,7 @@ import { getMessages } from 'next-intl/server';
 import Navbar from "@/components/header/navbar/navbar";
 import Footer from "@/components/footer/footer";
 import { Providers } from './providers';
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default async function RootLayout({
             <Navbar /> 
             <main className="pt-20 min-h-screen">
               {children}
+              <Analytics />
             </main>
             <Footer />
           </Providers>
