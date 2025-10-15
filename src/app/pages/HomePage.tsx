@@ -1,12 +1,25 @@
 'use client'
 
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import CustomCarousel from '@/components/carousel/carouselt'
 
 export default function Home() {
-  const t = useTranslations('Home')
+  const t = useTranslations('Home');
+  const audioRef : any = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const streamUrl = "https://securestreams4.autopo.st:1797//;stream.mp3";
+   const togglePlayPause = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <div className="w-full bg-white text-gray-800">
@@ -30,6 +43,30 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      <section className="py-10 bg-gray-50 text-center max-w-2xl justify-center mx-auto">
+        <h2 className='text-2xl font-semibold mb-4'>Escuchanos en Radio Mi Fortaleza</h2>
+        <iframe
+          title="Radio Mi Fortaleza"
+          src={"https://www.radiomifortaleza.com/"}
+          width="100%"
+          height="200"
+          frameBorder="0"
+          allowFullScreen
+        ></iframe>
+
+        <audio ref={audioRef} src={streamUrl} >
+          <source src={streamUrl} type='audio/mpeg'/>
+          Your browser does not support the audio element.
+        </audio>
+        <p>Transmisiones en vivo los viernes por la tarde</p>
+      {/* <button onClick={togglePlayPause}>
+        {isPlaying ? 'Pause Radio' : 'Play Radio'} */}
+      {/* </button> */}
+
+      </section>
+
+      <audio id="sonaar-audio"  src="https://securestreams4.autopo.st:1797//;stream.mp3" title="¡En Vivo!"></audio>
 
       {/* Service Times + Map */}
       <section className="py-12 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
